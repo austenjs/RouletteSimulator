@@ -6,10 +6,13 @@ from .player import Player
 
 CHOICES = [(BlackBet(), ColumnBet(3)), (RedBet(), ColumnBet(2))]
 class PloppyPlayer(Player):
+    '''
+    A class that represent a player with Ploppy Strategy
+    '''
     def place_bets(self) -> List[Bet]:
         if self.money < 5:
             return []
-        
+
         bets = []
         first_type_bet, second_type_bet = random.choice(CHOICES)
         for _ in range(3):

@@ -1,11 +1,14 @@
 from .bet import Bet
 
 class ParityBet(Bet):
+    '''
+    A class that represent odd or even bet
+    '''
     def __init__(self, parity: int):
         self.parity = parity
         if not self._validate():
             raise Exception('Only can set odd or even')
-        
+
     def _validate(self) -> bool:
         return self.parity in {0, 1}
 
@@ -22,9 +25,15 @@ class ParityBet(Bet):
         return 2
 
 class OddBet(ParityBet):
+    '''
+    A class that represent an odd bet
+    '''
     def __init__(self):
         super().__init__(1)
 
 class EvenBet(ParityBet):
+    '''
+    A class that represent an even bet
+    '''
     def __init__(self):
         super().__init__(0)

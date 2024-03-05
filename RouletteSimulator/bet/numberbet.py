@@ -3,6 +3,9 @@ from typing import List
 from .bet import Bet
 
 class NumberBet(Bet):
+    '''
+    A class that represent number bet
+    '''
     def __init__(self, numbers: List[str]):
         self.numbers = numbers
         if not self._validate():
@@ -13,11 +16,11 @@ class NumberBet(Bet):
 
 class OneNumberBet(NumberBet):
     '''
-    Also known as Straight Up Bet
+    A class that represent a single number bet - Also known as Straight Up Bet
     '''
     def get_payout(self) -> int:
         return 36
-    
+
     def _validate(self):
         if len(self.numbers) != 1:
             return False
@@ -32,7 +35,7 @@ class OneNumberBet(NumberBet):
 
 class TwoNumbersBet(NumberBet):
     '''
-    Also known as Split Bet
+    A class that represent a two number bet - Also known as Split Bet
     '''
     def get_payout(self) -> int:
         return 18
@@ -40,7 +43,7 @@ class TwoNumbersBet(NumberBet):
     def _validate(self):
         if len(self.numbers) != 2:
             return False
-        
+
         a, b = sorted(map(int, self.numbers))
         if a <= 0 or b >= 37:
             return False
@@ -53,15 +56,15 @@ class TwoNumbersBet(NumberBet):
 
 class ThreeNumbersBet(NumberBet):
     '''
-    Also known as Street Bet
+    A class that represent a three number bet - Also known as Street Bet
     '''
     def get_payout(self) -> int:
         return 12
-    
+
     def _validate(self):
         if len(self.numbers) != 3:
             return False
-        
+
         a, b, c = sorted(map(int, self.numbers))
         if a <= 0 or c >= 37:
             return False
@@ -72,21 +75,21 @@ class ThreeNumbersBet(NumberBet):
         elif c % 3 != 0:
             return False
         return a + 1 == b and b + 1 == c
-    
+
     def __str__(self) -> str:
         return 'STREET Bet'
 
 class FourNumbersBet(NumberBet):
     '''
-    Also known as Corner Bet
+    A class that represent a four number bet - Also known as Corner Bet
     '''
     def get_payout(self) -> int:
         return 9
-    
+
     def _validate(self):
         if len(self.numbers) != 4:
             return False
-        
+
         a, b, c, d = sorted(map(int, self.numbers))
         if a <= 0 or d >= 37:
             return False
@@ -99,7 +102,7 @@ class FourNumbersBet(NumberBet):
 
 class SixNumbersBet(NumberBet):
     '''
-    Also known as Six Line Bet
+    A class that represent a six number bet - Also known as Six Line Bet
     '''
     def get_payout(self) -> int:
         return 6
@@ -107,7 +110,7 @@ class SixNumbersBet(NumberBet):
     def _validate(self):
         if len(self.numbers) != 6:
             return False
-        
+
         a, b, c, d, e, f = sorted(map(int, self.numbers))
         if a <= 0 or f >= 37:
             return False

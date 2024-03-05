@@ -1,6 +1,9 @@
 from .bet import Bet
 
 class ColumnBet(Bet):
+    '''
+    A class that represent column bet
+    '''
     def __init__(self, col_number: int):
         self.col_number = col_number
         if not self._validate():
@@ -8,7 +11,7 @@ class ColumnBet(Bet):
 
     def _validate(self) -> bool:
         return 1 <= self.col_number <= 3
-    
+
     def check_number(self, ball_number: str) -> bool:
         if ball_number == '0':
             return False

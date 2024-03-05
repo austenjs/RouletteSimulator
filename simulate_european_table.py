@@ -14,10 +14,14 @@ from RouletteSimulator import (
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--initial_money", type=float, help="Initial amount of money to play", default=100)
-    parser.add_argument("--num_simulations", type=int, help="Number of roulette simulations", default=100)
-    parser.add_argument("--iteration_per_simulation", type=int, help="Number of games per simulation", default=100)
-    parser.add_argument("--verbose", action="store_true", help="Print the money of all players at each iteration (for debug purposes)")
+    parser.add_argument("--initial_money", type=float,
+                        help="Initial amount of money to play", default=100)
+    parser.add_argument("--num_simulations", type=int,
+                        help="Number of roulette simulations", default=100)
+    parser.add_argument("--iteration_per_simulation",
+                        type=int, help="Number of games per simulation", default=100)
+    parser.add_argument("--verbose", action="store_true",
+                        help="Print the money of all players at each iteration (for debug)")
     parser.add_argument("--random_seed", type=int, help="Random seed for RNG", default=42)
 
     args = parser.parse_args()
@@ -50,7 +54,8 @@ def main():
         for iteration in range(iteration_per_simulation):
             if verbose:
                 for i, player in enumerate(players):
-                    print(f'Iteration no: {iteration} | Player {i + 1} has {player.get_money()} left')
+                    print(f'Iteration no: {iteration} \
+                          | Player {i + 1} has {player.get_money()} left')
             simulator.simulate_one_game()
 
         # Update statistics

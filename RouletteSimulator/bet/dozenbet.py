@@ -1,6 +1,9 @@
 from .bet import Bet
 
 class DozenBet(Bet):
+    '''
+    A class that represent dozen bet
+    '''
     def __init__(self, dozen_number: int):
         self.dozen_number = dozen_number
         if not self._validate():
@@ -8,7 +11,7 @@ class DozenBet(Bet):
 
     def _validate(self) -> bool:
         return 1 <= self.dozen_number <= 3
-    
+
     def check_number(self, ball_number: str) -> bool:
         if ball_number == '0':
             return False

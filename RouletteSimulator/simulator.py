@@ -1,10 +1,13 @@
+from typing import List
+
 from .dealer import Dealer
 from .player import Player
 from .table import Table
 
-from typing import List
-
 class Simulator:
+    '''
+    A simulator class to simulate Roulette
+    '''
     def __init__(self, players: List[Player], dealer: Dealer, table: Table):
         if len(players) == 0:
             raise Exception('There must be at least one player')
@@ -13,7 +16,10 @@ class Simulator:
         self.dealer = dealer
         self.table = table
 
-    def simulate_one_game(self):
+    def simulate_one_game(self) -> None:
+        '''
+        Simulate one Roulette game
+        '''
         ball_number = self.table.roll()
         for player in self.players:
             if not player.has_money():

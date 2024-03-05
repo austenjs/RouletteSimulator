@@ -5,6 +5,9 @@ from ..bet import Bet, TWO_TO_ONE_BETS
 from .player import Player
 
 class DalembertPlayer(Player):
+    '''
+    A class that represent a player with Dalembert Strategy
+    '''
     def __init__(self, money: int):
         self.unit = 1
         self.last_bet = 5
@@ -14,7 +17,7 @@ class DalembertPlayer(Player):
     def get_money(self) -> int:
         self.last_win = True
         return super().get_money()
-    
+
     def place_bets(self) -> List[Bet]:
         money_to_spend = self.last_bet
         if self.last_bet == 5 * self.unit:
@@ -34,6 +37,6 @@ class DalembertPlayer(Player):
         for _ in range(money_to_spend):
             bets.append(bet_type())
         return bets
-    
+
     def __str__(self) -> str:
         return 'Dalembert'

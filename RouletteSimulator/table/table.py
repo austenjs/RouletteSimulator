@@ -1,8 +1,11 @@
-from abc import ABC, abstractclassmethod
-import random
-from typing import List
+from abc import ABC, abstractmethod
 
 class Table(ABC):
-    @abstractclassmethod
+    '''
+    An abstract class that represent a Roulette table
+    '''
+    @abstractmethod
     def roll(self) -> str:
-        pass
+        '''
+        Roll the ball and get the winning number
+        '''

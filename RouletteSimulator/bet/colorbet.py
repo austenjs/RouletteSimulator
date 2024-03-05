@@ -3,11 +3,17 @@ from enum import Enum
 from .bet import Bet
 
 class Color(Enum):
+    '''
+    An enum class used by ColorBet
+    '''
     GREEN = 0
     RED = 1
     BLACK = 2
 
 class ColorBet(Bet):
+    '''
+    A class to represents color bet (red or black)
+    '''
     RED_NUMBERS = {1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36}
     BLACK_NUMBERS = {2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35}
 
@@ -20,10 +26,10 @@ class ColorBet(Bet):
         number = int(number)
         if number in ColorBet.RED_NUMBERS:
             return Color.RED
-        elif number in ColorBet.BLACK_NUMBERS:
+        if number in ColorBet.BLACK_NUMBERS:
             return Color.BLACK
         return Color.GREEN
-    
+
     def _validate(self) -> bool:
         return self.color in {Color.RED, Color.BLACK}
 
@@ -35,6 +41,9 @@ class ColorBet(Bet):
         return 2
 
 class RedBet(ColorBet):
+    '''
+    A class to represents red color bet
+    '''
     def __init__(self):
         super().__init__(Color.RED)
 
@@ -42,6 +51,9 @@ class RedBet(ColorBet):
         return 'RED Bet'
 
 class BlackBet(ColorBet):
+    '''
+    A class to represents black color bet
+    '''
     def __init__(self):
         super().__init__(Color.BLACK)
 

@@ -1,14 +1,23 @@
-from abc import ABC, abstractclassmethod
+from abc import ABC, abstractmethod
 
 class Bet(ABC):
-    @abstractclassmethod
+    '''
+    An abstract class that represents a bet in Roulette game
+    '''
+    @abstractmethod
     def check_number(self, ball_number: str) -> bool:
-        pass
+        '''
+        Check whether the ball number wins the bet
+        '''
 
-    @abstractclassmethod
+    @abstractmethod
     def get_payout(self) -> int:
-        pass
+        '''
+        Get a certain amount of money if the bet win
+        '''
 
-    @abstractclassmethod
+    @abstractmethod
     def _validate(self) -> bool:
-        pass
+        '''
+        Validate the arguments passed during object creation
+        '''
