@@ -13,7 +13,7 @@ To simulate Roulette on American table, run:
  ```
 To simulate Roulette on European table, run:
 ```
- python simulate_america_table.py
+ python simulate_european_table.py
  ```
 
 # Advance Usage
