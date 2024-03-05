@@ -16,6 +16,6 @@ To simulate Roulette on European table, run:
  python simulate_european_table.py
  ```
 
-# Advance Usage
+# Advanced Users
 If you want to implement your strategy in this simulator, you can extend the base *Player* class located in `RouletteSimulator/player/player.py` and modify the main file(s).
 
